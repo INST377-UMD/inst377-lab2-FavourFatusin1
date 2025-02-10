@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Page 1 Styling (Form Page) */
+        .form-page {
+            background-color: #FFC0CB; /* Rose color */
+            height: 100vh; /* Full screen height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .form-group {
+            margin: 20px;
+            font-size: 18px;
+        }
+
+        input, select {
+            margin: 10px;
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        /* Submit Button Styling */
+        .submit-btn {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: #800080; /* Purple */
+        }
+
+        /* Page 2 Styling (Thank You Page) */
+        .thank-you-page {
+            background-color: #87CEEB; /* Sky blue */
+            height: 100vh; /* Full screen height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            display: none;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .thank-you-img {
+            display: block;
+            margin: 20px auto;
+            width: 50%;
+        }
+
+        .thank-you-message {
+            font-size: 18px;
+            margin-top: 10px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Page 1: Form -->
+    <div id="formPage" class="form-page">
+        <form id="myForm">
+            <div class="form-group">
+                <label for="name">Enter Your Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Enter Your Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="year">Year in College:</label>
+                <select id="year" name="year" required>
+                    <option value="freshman">Freshman</option>
+                    <option value="sophomore">Sophomore</option>
+                    <option value="junior">Junior</option>
+                    <option value="senior">Senior</option>
+                    <option value="not_in_college">Not in College</option>
+                </select>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <!-- Page 2: Thank You -->
+    <div id="thankYouPage" class="thank-you-page">
+        <h1>Thank You for Submitting!</h1>
+        <img src="https://cdn.pixabay.com/photo/2022/12/11/04/11/thumbs-up-7648171_1280.png" alt="Thank You" class="thank-you-img">
+        <p class="thank-you-message">Thanks for submitting, we will look at the results.</p>
+    </div>
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent actual submission
+
+            // Hide form and show thank you page
+            document.getElementById("formPage").style.display = "none";
+            document.getElementById("thankYouPage").style.display = "flex";
+        });
+    </script>
+
+</body>
+</html>
